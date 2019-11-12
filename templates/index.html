@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Approval</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Loan Approval</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<label>member<input type="text" name="member_id" placeholder="member_id" required="required" /></label>
+        <input type="text" name="emp_length" placeholder="emp_length" required="required" />
+		<input type="text" name="loan_amnt" placeholder="loan_amnt" required="required" />
+
+    <input type="text" name="funded_amnt" placeholder="funded_amnt" required="required" />
+    <input type="text" name="funded_amnt_inv" placeholder="funded_amnt_inv" required="required" />
+    <input type="text" name="sub_grade" placeholder="sub_grade" required="required" />
+    <input type="text" name="int_rate" placeholder="int_rate" required="required" />
+    <input type="text" name="annual_inc" placeholder="annual_inc" required="required" />
+    <input type="text" name="dti" placeholder="dti" required="required" />
+    <input type="text" name="mths_since_last_delinq" placeholder="mths_since_last_delinq" required="required" />
+    <input type="text" name="mths_since_last_record" placeholder="mths_since_last_record" required="required" />
+    <input type="text" name="open_acc" placeholder="open_acc" required="required" />
+    <input type="text" name="revol_bal" placeholder="revol_bal" required="required" />
+    <input type="text" name="revol_util" placeholder="revol_util" required="required" />
+    <input type="text" name="total_acc" placeholder="total_acc" required="required" />
+    <input type="text" name="total_rec_int" placeholder="total_rec_int" required="required" />
+    <input type="text" name="total_rec_late_fee" placeholder="total_rec_late_fee" required="required" />
+    <input type="text" name="mths_since_last_major_derog" placeholder="mths_since_last_major_derog" required="required" />
+    <input type="text" name="last_week_pay" placeholder="last_week_pay" required="required" />
+    <input type="text" name="tot_cur_bal" placeholder="tot_cur_bal" required="required" />
+    <input type="text" name="total_rev_hi_lim" placeholder="total_rev_hi_lim" required="required" />
+
+    <input type="text" name="tot_coll_amt" placeholder="tot_coll_amt" required="required" />
+
+    <input type="text" name="recoveries" placeholder="recoveries" required="required" />
+    <input type="text" name="collection_recovery_fee" placeholder="collection_recovery_fee" required="required" />
+
+    <input type="text" name="term" placeholder="term" required="required" />
+
+    <input type="text" name="acc_now_delinq" placeholder="acc_now_delinq" required="required" />
+
+    <input type="text" name="collections_12_mths_ex_med" placeholder="collections_12_mths_ex_med" required="required" />
+
+    <input type="text" name="loan_to_income" placeholder="loan_to_income" required="required" />
+
+    <input type="text" name="bad_state" placeholder="bad_state" required="required" />
+
+    <input type="text" name="avl_lines" placeholder="avl_lines" required="required" />
+
+    <input type="text" name="int_paid" placeholder="int_paid" required="required" />
+
+    <input type="text" name="emi_paid_progress_perc" placeholder="emi_paid_progress_perc" required="required" />
+    <input type="text" name="total_repayment_progress" placeholder="total_repayment_progress" required="required" />
+
+
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
